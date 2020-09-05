@@ -6,12 +6,13 @@ class User < ApplicationRecord
         
   with_options presence: true do
     validates :nickname, 
-    validates :email,             uniqueness: true,inclusion: {in:@}
-    validates :password,          length: { minimum: 6 },format: { with:/^[a-z0-9]+$/}
-    validates :first_name,        format: { with:}
-    validates :family_name
-    validates :first_name_kana
-    validates :family_name_kana
+    validates :email,                 uniqueness: true,inclusion: {in:@}
+    validates :password,              length: { minimum: 6 },format: { with:/^[a-z0-9]+$/},confirmation: true
+    validates :password_confirmation, presence: true
+    validates :first_name,            format: { with:/\A[ぁ-んァ-ン一-龥]/}
+    validates :family_name            format: { with:/\A[ぁ-んァ-ン一-龥]/}
+    validates :first_name_kana        format: { with:/\A[ァ-ヶー－]+\z/}
+    validates :family_name_kana       format: { with:/\A[ァ-ヶー－]+\z/}
     validates :birth_date
     
     
