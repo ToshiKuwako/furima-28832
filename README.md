@@ -34,56 +34,6 @@
 - has_one :purchase
 
 
-## category_テーブル(ActiveHash)
-
-| Column   | Type       | Options        |
-| ---------| ---------- | -------------- |
-| category | string     | null: false    |
-
-
-### Association
-- has_many :items
-
-## condition_テーブル(ActiveHash)
-
-| Column    | Type       | Options                       |
-| --------- | ---------- | ----------------------------- |
-| condition | string     | null: false                   |
-
-
-### Association
-- has_many :items
-
-## postage_payer_テーブル(ActiveHash)
-
-| Column        | Type       | Options                       |
-| ------------- | ---------- | ----------------------------- |
-| postage_payer | string     | null: false                   |
-
-
-### Association
-- has_many :items
-
-## sending＿time_テーブル(ActiveHash)
-
-| Column       | Type       | Options                       |
-| ------------ | ---------- | ----------------------------- |
-| sending_time | string     | null: false                   |
-
-
-### Association
-- has_many :items
-
-## prefecture_テーブル(ActiveHash)
-
-| Column       | Type       | Options                       |
-| ------------ | ---------- | ----------------------------- |
-| prefecture   | string     | null: false                   |
-
-
-### Association
-- has_many :items
-- has_many :addresses
 
 ## addresses_テーブル
 
