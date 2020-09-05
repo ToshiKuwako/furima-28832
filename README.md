@@ -34,7 +34,7 @@
 - has_one :purchase
 
 
-## category_テーブル
+## category_テーブル(ActiveHash)
 
 | Column   | Type       | Options        |
 | ---------| ---------- | -------------- |
@@ -44,7 +44,7 @@
 ### Association
 - has_many :items
 
-## condition_テーブル
+## condition_テーブル(ActiveHash)
 
 | Column    | Type       | Options                       |
 | --------- | ---------- | ----------------------------- |
@@ -54,7 +54,7 @@
 ### Association
 - has_many :items
 
-## postage_payer_テーブル
+## postage_payer_テーブル(ActiveHash)
 
 | Column        | Type       | Options                       |
 | ------------- | ---------- | ----------------------------- |
@@ -64,7 +64,7 @@
 ### Association
 - has_many :items
 
-## sending＿time_テーブル
+## sending＿time_テーブル(ActiveHash)
 
 | Column       | Type       | Options                       |
 | ------------ | ---------- | ----------------------------- |
@@ -74,7 +74,7 @@
 ### Association
 - has_many :items
 
-## prefecture_テーブル
+## prefecture_テーブル(ActiveHash)
 
 | Column       | Type       | Options                       |
 | ------------ | ---------- | ----------------------------- |
