@@ -5,8 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
-  has_many :purchases
-
+  has_many :purchaseshas_one_attached :image
   with_options presence: true do
     validates :nickname
     validates :email,                 uniqueness: true, format: { with:/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}

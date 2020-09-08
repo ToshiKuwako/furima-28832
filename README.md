@@ -9,17 +9,17 @@
 | family_name       | string     | null: false                    |
 | first_name_kana   | string     | null: false                    |
 | family_name_kana  | string     | null: false                    |
-| birth_date          | date       | null: false                    |
+| birth_date        | date       | null: false                    |
 
 ### Association
-- belongs_to :item
-- belongs_to :purchase
+- has_many :items
+- has_many :purchases
 
 ## items_テーブル
 
 | Column                   | Type           | Options                       |
 | ------------------------ | -------------- | ----------------------------- |
-| user                     | references     | null: false                   |
+| user                     | references     | null: false,foreign_key:true  |
 | name                     | string         | null: false                   |
 | description              | text           | null: false                   |
 | category_id              | integer        | null: false                   |
@@ -33,8 +33,6 @@
 - belongs_to :user
 - has_one :purchase
 
-
-
 ## addresses_テーブル
 
 | Column                   | Type           | Options                       |
@@ -47,7 +45,7 @@
 | purchase                 | references     | null: false, foreign_key: true|
 
 ### Association
-- has_one :purchase
+- belongs_to :purchase
 
 ## purchase_テーブル
 
