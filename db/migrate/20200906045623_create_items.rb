@@ -11,7 +11,6 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :prefecture_id,      null: false
       t.integer :sending_time_id,    null: false
       t.integer :price,              null: false
-
       t.timestamps
     end
   end
