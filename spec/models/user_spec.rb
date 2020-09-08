@@ -10,7 +10,7 @@ RSpec.describe User, type: :model do
         expect(@user).to be_valid
       end
       it "emailに@が存在すれば登録できる" do
-        @user.email = "aaa@aaa"
+        @user.email = "aa@aa.aa"
         expect(@user).to be_valid
 
       end
