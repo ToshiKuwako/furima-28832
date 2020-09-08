@@ -1,0 +1,2 @@
+class SendingTime < ApplicationRecord
+end

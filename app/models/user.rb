@@ -5,7 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
-  has_many :purchaseshas_one_attached :image
+  has_many :purchases
+
   with_options presence: true do
     validates :nickname
     validates :email,                 uniqueness: true, format: { with:/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i}
@@ -16,8 +17,6 @@ class User < ApplicationRecord
     validates :first_name_kana,       format: { with: /\A[ァ-ヶー－]+\z/}
     validates :family_name_kana,      format: { with: /\A[ァ-ヶー－]+\z/}
     validates :birth_date
-    
-    
   end
 
 
