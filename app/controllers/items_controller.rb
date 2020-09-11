@@ -2,7 +2,9 @@ class ItemsController < ApplicationController
   before_action :move_to_sign_in, only: [:new]
 
   def index
-    @items = Item.all.order(id: "DESC")
+    @items = Item.includes(:user).order(id: "DESC")
+    # @items = Item.all.order(id: "DESC")
+   
   end
 
   def new
@@ -15,6 +17,7 @@ class ItemsController < ApplicationController
     @item = Item.new(item_params)
     
     if @item.save
+     
       redirect_to root_path
     else
       render :new
