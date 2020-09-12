@@ -128,11 +128,19 @@
 
       <%# 商品のインスタンス変数になにか入っている場合、中身のすべてを展開できるようにしましょう %>
       <li class='list'>
+<<<<<<< Updated upstream
         <%= link_to "#" do %>
         <% @items.each do |item|  %>
         <div class='item-img-content'>
           <%= image_tag item.image, class: "item-img" %>
 
+=======
+      <% @items.each do |i|  %>
+        <%= link_to item_path(i.id) do %>
+          <div class='item-img-content'>
+            <%= image_tag i.image, class: "item-img" %>
+        <% end %>
+>>>>>>> Stashed changes
           <%# 商品が売れていればsold outを表示しましょう %>
           <%# <div class='sold-out'>
             <span>Sold Out!!</span>

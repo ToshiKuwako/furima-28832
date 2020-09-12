@@ -8,7 +8,7 @@
     <%= form_with model:@item , local: true do |f| %>
     
     <%# エラーメッセージ %>
-    <% render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
      <%# /エラーメッセージ %>
     <%# 出品画像 %>
     <div class="img-upload">
@@ -70,7 +70,7 @@
           配送料の負担
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:sending_time_id, SendingTime.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
+        <%= f.collection_select(:postage_payer_id, PostagePayer.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
         <div class="weight-bold-text">
           発送元の地域
           <span class="indispensable">必須</span>
@@ -80,7 +80,7 @@
           発送までの日数
           <span class="indispensable">必須</span>
         </div>
-        <%= f.collection_select(:postage_payer_id, PostagePayer.all, :id, :name, {}, {class:"select-box", id:"item-scheduled-delivery"}) %>
+        <%= f.collection_select(:sending_time_id, SendingTime.all, :id, :name, {}, {class:"select-box", id:"item-shipping-fee-status"}) %>
       </div>
     </div>
     <%# /配送について %>
