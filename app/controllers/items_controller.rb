@@ -18,8 +18,6 @@ class ItemsController < ApplicationController
     end
   end
 
-<<<<<<< Updated upstream
-=======
   def show
    
     @item = Item.find(params[:id])
@@ -42,7 +40,7 @@ class ItemsController < ApplicationController
   end
 
 
->>>>>>> Stashed changes
+
   private
 
   def item_params
