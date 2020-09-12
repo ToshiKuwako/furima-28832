@@ -29,7 +29,8 @@ class ItemsController < ApplicationController
   private
 
   def item_params
-    params.require(:item).permit(:image, :name, :postage_payer_id, :description, :category_id, :condition_id, :prefecture_id, :sending_time_id, :price).merge(user_id:current_user.id)
+    params.require(:item).permit(:image, :name, :postage_payer_id, :description, :category_id,
+     :condition_id, :prefecture_id, :sending_time_id, :price).merge(user_id:current_user.id)
   end
 
   def move_to_sign_in
@@ -37,7 +38,5 @@ class ItemsController < ApplicationController
       redirect_to  new_user_session_path
     end
   end
-    
-    
 end
 
