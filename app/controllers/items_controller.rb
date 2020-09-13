@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController
   before_action :move_to_sign_in, only: [:new]
+  before_action :set_item, only: [:edit, :show]
 
   def index
     @items = Item.includes(:user).order(id: "DESC")
-   
   end
 
   def new
@@ -19,12 +19,22 @@ class ItemsController < ApplicationController
     end
   end
 
-  def show
-   
-    @item = Item.find(params[:id])
-  
+  def show  
   end
 
+  def edit    
+  end
+
+  def update
+
+    @item.update(item_params)
+    if @item.valid?
+      redirect_to item_path
+    else
+      render :edit
+    end
+
+  end
 
   private
 
@@ -37,6 +47,10 @@ class ItemsController < ApplicationController
     unless user_signed_in?
       redirect_to  new_user_session_path
     end
+  end
+
+  def set_item
+    @item = Item.find(params[:id])
   end
 end
 
