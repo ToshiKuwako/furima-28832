@@ -2,9 +2,9 @@
 
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
-| nickname          | string     | null: false, unique: true      |
+| nickname          | string     | null: false,                   |
 | email             | string     | null: false, unique: true      |
-| password          | string     | null: false, unique: true      |
+| password          | string     | null: false,                   |
 | first_name        | string     | null: false                    |
 | family_name       | string     | null: false                    |
 | first_name_kana   | string     | null: false                    |
@@ -13,7 +13,7 @@
 
 ### Association
 - has_many :items
-- has_many :purchases
+- has_many :order
 
 ## items_テーブル
 
@@ -31,7 +31,7 @@
 
 ### Association
 - belongs_to :user
-- has_one :purchase
+- has_one :order
 
 ## addresses_テーブル
 
@@ -42,12 +42,12 @@
 | city                     | string         | null: false                   |
 | building                 | string         |                               |
 | phone_number             | string         | null: false, unique: true     |
-| purchase                 | references     | null: false, foreign_key: true|
+| orders                | references     | null: false, foreign_key: true|
 
 ### Association
 - belongs_to :purchase
 
-## purchase_テーブル
+## orders_テーブル
 
 | Column    | Type       | Options                       |
 | --------- | ---------- | ----------------------------- |
