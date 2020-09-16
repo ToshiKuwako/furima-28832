@@ -1,16 +1,10 @@
 class OrdersController < ApplicationController
+ before_action :move_to_sign_in ,  only:[:index]
  before_action :move_to_root_path , only:[:index]
-
-  def index
-   
+  def index 
     @item = Item.find(params[:item_id])
-    @order = OrderAddress.new(order_params)
-  
-  
+    @order = OrderAddress.new(order_params) 
   end
-
-   
-
 
   def create
     @order = OrderAddress.new(order_params)
@@ -28,11 +22,14 @@ class OrdersController < ApplicationController
 
   def move_to_root_path
     @item = Item.find(params[:item_id])
+    if  current_user.id == @item.user_id || @item.order != nil  
+      redirect_to root_path
+    end
+  end
 
-    if  current_user.id == @item.user_id || @item.order != nil 
-      redirect_to root_path
-    elsif @item.order == @item.id 
-      redirect_to root_path
+  def move_to_sign_in 
+    unless user_signed_in? 
+      redirect_to  new_user_session_path
     end
   end
 
@@ -42,7 +39,7 @@ class OrdersController < ApplicationController
   end
 
   def pay_item
-     Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @item.price,
       card: order_params[:token],
