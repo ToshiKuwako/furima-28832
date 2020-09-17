@@ -1,6 +1,6 @@
 class ItemsController < ApplicationController
   before_action :move_to_sign_in, only: [:new]
-  before_action :set_item, only: [:edit, :show, :destroy]
+  before_action :set_item, only: [:edit, :show, :update, :destroy]
 
   def index
     @items = Item.includes(:user).order(id: "DESC")
