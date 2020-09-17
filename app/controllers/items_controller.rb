@@ -27,14 +27,12 @@ class ItemsController < ApplicationController
   end
 
   def update
-
     @item.update(item_params)
     if @item.valid?
       redirect_to item_path
     else
       render :edit
     end
-
   end
 
   def destroy
